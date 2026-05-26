@@ -1,0 +1,144 @@
+* {
+   margin: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+}
+
+header {
+   display: flex;
+   width: 100%;
+   background-color: #333333;
+   align-items: center;
+   justify-content: space-between;
+   position: fixed;
+   top: 0;
+}
+
+.logo {
+   height: 60px;
+   padding: 5px 15px;
+}
+
+header ul {
+   display: flex;
+}
+
+header li {
+   margin: 0 15px;
+   padding: 0 25px;
+   color: white;
+   font-size: 0.9rem;
+   list-style: none;
+}
+
+li a {
+   color: inherit;
+}
+
+li a:hover{
+   color: teal;
+   cursor: pointer;
+}
+
+
+.home {
+   background-color: #232323;
+   padding:120px 0 ;
+}
+
+h1 {
+   text-align: center;
+   color: white;
+}
+
+.home p {
+   color: white;
+   text-align: center;
+}
+
+#cake {
+   display: block;
+   margin: 15px auto 0;
+}
+
+.border {
+   border: solid teal 2px;
+   padding: 15px;
+    border-radius: 5px;
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* services */
+
+.services {
+   padding: 30px 10px;
+}
+
+
+h2 {
+   display: inline-block;
+   border-bottom: solid #232323 3px;
+   font-size: 1.8rem;
+}
+
+h2 + p {
+   background-color: aqua;
+   margin-top: 10px;
+   width: 50%;
+   padding: 5px;
+   font-size: 1.2rem;
+   text-align: center;
+}
+
+h3 {
+   margin: 20px 0;
+}
+
+.services li {
+   font-size: 1.3rem;
+   font-weight: 900;
+}
+
+li + p {
+   font-size: 1.2rem;
+   margin: 15px 0;
+}
+
+
+.pricing {
+   background-color: #333333;
+    padding: 30px 10px 0;
+    
+}
+
+.container {
+   display: grid;
+   grid-template-columns: repeat(4,300px);
+   grid-template-rows: repeat(4,350px);
+   gap: 8px;
+   margin-top: 30px;
+}
+
+.container div {
+   text-align: center;
+   border: solid 2px teal;
+   text-transform: uppercase;
+   border-radius: 10px;
+   border-top: aqua solid 30px;
+}
+.container p {
+   margin-top: -20px;
+}
+
+.container img {
+   display: block;
+   width: 200px;
+   height: 300px;
+   margin: 5px auto 0;
+   object-fit: cover;
+}
+
+h5 {
+   margin: 0;
+}

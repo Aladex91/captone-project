@@ -275,7 +275,7 @@ nav a:hover {
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: 80px 5% 60px;
+    padding: 80px 7% 60px;
 }
 
 .video-figure {
@@ -433,6 +433,7 @@ label{
     display: block;
     margin:20px 0 8px;
     font-size: 0.8rem;
+    font-weight: 700;
 }
 
 input,textarea {
@@ -442,6 +443,7 @@ input,textarea {
   border-radius: 5px;
   border: solid 1px #C7C7C7;
 }
+
 
 textarea {
     resize: none;
@@ -509,9 +511,9 @@ h6 {
 }
 
 footer a:hover {
-color: teal;
-cursor: pointer;
-border-bottom: aqua solid 0.2px; 
+color: #F2F7FF;
+cursor: pointer; 
+border-bottom: solid 1px #F2F7FF;
 }
 
 /* .arrow {
@@ -541,8 +543,9 @@ border-bottom: aqua solid 0.2px;
     }
 
     h1 {
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
+
 
 
    
@@ -563,9 +566,6 @@ border-bottom: aqua solid 0.2px;
      
     }
 
-    .hero h1 {
-        font-size: 1.3rem;
-    }
     
     .hero P{
         line-height: 1.8;
@@ -618,7 +618,10 @@ border-bottom: aqua solid 0.2px;
 
     #planets {
         grid-template-columns: repeat(2,1fr);
-        
+    }
+
+    .solar-container P {
+        margin-top: 40px;
     }
 
     .pluto {
@@ -636,14 +639,24 @@ border-bottom: aqua solid 0.2px;
         padding: 45px 10px;
      }
 
+     .form-section h1,p{
+        text-align: center;
+     }
+
     fieldset {
         display: grid ;
         grid-template-columns: 1fr;
     }
 
+    label {
+        font-size: 1.2;
+    }
+   .char {
+    text-align: left;
+   }
    .btn {
-     width: 95%;
-     padding: 8px 5px;
+     width: 100%;
+     padding: 10px 5px;
      border-radius: 5px;
      margin-top: 25px;
      font-size: 1rem;
@@ -652,6 +665,7 @@ border-bottom: aqua solid 0.2px;
   .bi {
     font-size: 0.8rem;
   } 
+
 
   /* footer section */
   footer {

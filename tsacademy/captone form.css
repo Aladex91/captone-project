@@ -1,289 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comforter+Brush&family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
-
-
-/* making use of :where to allow for low specificity making it easy to override */
-
-
-/* 1. border-box for box model */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+#section5 {
+  height: auto;
+  padding: 50px;
+  background-color: #ffffff;
 }
 
-/* 2. remove default margin 
-padding is optional but i do this because of lists*/
-
-:where(:not(dialog)) {
-    margin: 0;
-    padding: 0;
+#section5 .section5text p {
+  color: #0F2A44;
+  text-align: start;
 }
 
-
-/* 3. great for in-page linking */
-@media(prefers-reduced-motion:no-preference) {
-    :where(html) {
-        scroll-behavior: smooth;
-    }
+#section5 .section5text h2 {
+  color: #164BAF;
+  text-align: start;
 }
 
-/* 4. line height and text rendering improvement */
-:where(html) {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+/* === SUCCESS / ERROR MESSAGE STYLES & ANIMATION === */
+.status-message {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  color: #0F2A44;
+  border-radius: 6px;
+  font-weight: bold;
 }
 
-/* 5. ensure full viewport height */
-:where(html, body) {
-    min-block-size: 100%;
+.fade-out {
+  /* Runs our 4 second animation synchronized perfectly with our React timer */
+  animation: fadeOutEffect 4s forwards ease-in-out;
 }
 
-/* 6. improve line wrapping */
-:where(h1, h2, h3,
-    h4, h5, h6) {
-    text-wrap: balance;
+@keyframes fadeOutEffect {
+  0% { opacity: 1; }
+  60% { opacity: 1; }  /* Hold visually for a moment before beginning to fade */
+  100% { opacity: 0; display: none; }
+}
+/* ================================================ */
+
+#section5 .form {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-:where(p) {
-    text-wrap: pretty;
+/* Updated constraint ensuring container explicitly locks items down leftwards */
+#section5 .formgroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Guards against horizontal centering from external divs */
+  width: 100%; 
+  
 }
 
-:where(figure)>:where(figcaption) {
-    text-wrap: balance;
+/* Label explicit constraints forcing alignment strictly side/left */
+#section5 label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-align: left !important;
+  width: 100%; 
+  color: black;
 }
 
-:where(p, h1, h2, h3,
-    h4, h5, h6) {
-    overflow-wrap: break-word;
+/* Ensure our inputs span horizontally securely on that layout track */
+#section5 input, #section5 textarea {
+  width: 100%; /* Adapts firmly leftwards without float shrinking gaps */
+  box-sizing: border-box; /* Essential so padding is calculated right along full width */
+  
 }
 
-
-
-/* 7. making media elements block-level */
-:where(img,
-    svg,
-    video,
-    canvas,
-    picture,
-    audio,
-    iframe,
-    embed,
-    object) {
-    display: block
+#section5 input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  background-color: #ffffff;
+  color: black;
 }
 
-:where(img, svg, video, canvas, picture) {
-    block-size: auto;
-    max-inline-size: 100%
+#section5 textarea {
+  outline: none;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  background-color: #ffffff;
+  color: black;
 }
 
-/* 8. inherit font and letter spacing for form controls */
-:where(input,
-    button,
-    textarea,
-    select),
-:where(input[type=file])::-webkit-file-upload-button {
-    font: inherit;
-    letter-spacing: inherit
+#section5 input:focus, 
+#section5 textarea:focus {
+  border-color: #007bff;
 }
 
-/* 9. textarea can only resized vertically and will grow to adjust its content */
-:where(textarea) {
-    resize: vertical;
-   field-sizing: content;
+#section5 .msg-hint {
+  text-align: left;
+  width: 100%;
+  display: block;
+  margin-top: 4px;
+  color: #666;
 }
 
-/* 10. table */
-:where(table) {
-    width: fit-content;
-    border-collapse: collapse;
+#section5 .btn {
+  margin-top: 20px;
+  width: 250px;
+  padding: 12px;
+  border: none;
+  background: #164BAF;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-:where(pre) {
-    direction: ltr;
-    max-inline-size: max-content;
-    min-inline-size: 0;
-    white-space: pre;
-    writing-mode: lr
+#section5 .btn:disabled {
+  background: #9ab4db;
+  cursor: not-allowed;
 }
 
-:where(a[href],
-    area,
-    button,
-    input:not([type=text],
-        [type=email],
-        [type=number],
-        [type=password],
-        [type=""],
-        [type=tel],
-        [type=url]),
-    label[for],
-    select,
-    summary,
-    [tabindex]:not([tabindex*="-"],
-        pre)) {
-    cursor: pointer
+#section5 span {
+  color: red;
 }
 
-/*  this will disable additional non-standard gestures such as double-tap to zoom*/
-:where(a[href],
-    area,
-    button,
-    input,
-    label[for],
-    select,
-    summary,
-    textarea,
-    [tabindex]:not([tabindex*="-"])) {
-    touch-action: manipulation
+#section5 .btn:hover:not(:disabled) {
+  background: #0056b3;
 }
 
-
-
-
-:root {
-    --header-bg:#051540 ;
-    --p-color:#0F2A44;
-    --secondary-color:#ffffff;
-    --card-color:#F2F7FF;
-    --heading-color:#164BAF;
-    --table-th-color:#164BAF;
-    --table-bg-color:#D1E3FF;
-    --sub-table-bg-color:#F2F7FF;
-    --button-color:#164BAF;
-    --footer-color:#051540;
-}
-h1 {
-   color: var(--heading-color); 
-   font-size: 1.2rem;
-}
-
-p {
-   color: var(--p-color); 
-   font-size: 0.8rem;
-   line-height: 1.5;
-}
-
-
-/* form section */
-
-.form-section {
-    padding: 60px 8% ;
-}
-
-fieldset {
-    border: none;
-}
-
-fieldset {
-     display: grid;
-     grid-template-columns: repeat(2,1fr);
-     column-gap: 20px;
-     padding: 0;
-     margin: 0;
-    
-}
-
-label{
-    display: block;
-    margin:20px 0 8px;
-    font-size: 0.8rem;
-    font-weight: 300;
-}
-
-input,textarea {
- width: 100%;
- padding: 10px;
- display: block;
-  border-radius: 5px;
-  border: solid 1px #C7C7C7;
-}
-
-
-textarea {
-    resize: none;
-}
- .form-section p {
-    color: #616161;
- }
-.btn {
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  #section5 {
+    padding: 30px 15px;
+  }
+  
+  #section5 .section5text {
     display: flex;
+    flex-direction: column;
+    align-items: center; 
     justify-content: center;
-    align-items: center;
-    width: 180px;
-    padding: 8px 2px;
-    background-color: var(--button-color);
-    color: var(--secondary-color);
-    border: none;
-    border-radius: 4px;
+  }
+   #section5 .section5text h1,
+  #section5 .section5text h2,
+  #section5 .section5text p {
     text-align: center;
-    font-size: 0.7rem;
-    margin-top: 20px;
-}
-
-.bi {
-    font-weight: bold;
-    display: block;
-    margin-left: 8px;
-    font-size: 8px;
-}
-
-
-/* phone view */
-@media (max-width:768px) {
+    width: 100%;
+  }
   
+  #section5 .form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
   
-
-
-      /* form section */
-
-      br {
-        display: none;
-      }
-     .form-section {
-        padding: 45px 10px;
-     }
-
-     .form-section p{
-        text-align: center;
-        font-size: 1.2rem;
-        color: #0F2A44;
-     }
-
-     .form-section h1  {
-        font-size: 2rem;
-        text-align: center;
-     }
-
-    fieldset {
-        display: grid ;
-        grid-template-columns: 1fr;
-    }
-
-    label {
-        font-size: 1.3;
-    }
-
-    textarea {
-      height: 120px;
-    }
-    .form-section .char {
-      text-align: left;
-      color: #616161;
-      font-size: 1rem;
-    }
-   .btn {
-     width: 100%;
-     padding: 10px 5px;
-     border-radius: 5px;
-     margin-top: 25px;
-     font-size: 1rem;
-   }
-    
-  .bi {
-    font-size: 0.8rem;
-  } 
+  #section5 .btn {
+    margin-top: 15px;
+    width: 100%; /* Fits nicely on small screens instead of defaulting off right axis bounds */
+  }
 }

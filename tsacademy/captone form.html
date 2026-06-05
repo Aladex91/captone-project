@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="captone form.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <section class="form-section" id="contact">
+<h1>Have Questions About Planetary Science?</h1>
+<p>Interested in learning more about space, astronomy, or how  data is collected and analyzed? <br>
+Reach out and we'll get back to you.</p>
+ <form action="#">
+    <fieldset>
+
+     <div>
+       <label for="fullame"> Full Name*</label>
+    <input type="text"  id="fullame" name="fullname" placeholder="Full name" minlength="10" maxlength="20" required>
+     </div>
+<div>
+  
+    <label for="email">Email*</label> 
+    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+</div>
+
+<div>
+   <label for="phone">Phone Number*</label> 
+    <input type="tel" id="phone" name="tel" maxlength="11" placeholder="Please enter a valid number." required> 
+</div>
+
+<div>
+  <label for="message">Message*</label> 
+    <textarea name="message" id="message"  maxlength="100" placeholder="Enter your message" required></textarea> 
+    <p class="char">100 characters</p>
+</div>
+  </fieldset>
+  <button type="submit" class="btn">Submit  <i class="bi bi-chevron-right" ></i></button>
+  </form>
+  </section>
+<script src="captone project.js"></script>
+</body>
+</html>

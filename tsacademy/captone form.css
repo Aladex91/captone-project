@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comforter+Brush&family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+/* making use of :where to allow for low specificity making it easy to override */
+
+
+/* 1. border-box for box model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. remove default margin 
+padding is optional but i do this because of lists*/
+
+:where(:not(dialog)) {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 3. great for in-page linking */
+@media(prefers-reduced-motion:no-preference) {
+    :where(html) {
+        scroll-behavior: smooth;
+    }
+}
+
+/* 4. line height and text rendering improvement */
+:where(html) {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. ensure full viewport height */
+:where(html, body) {
+    min-block-size: 100%;
+}
+
+/* 6. improve line wrapping */
+:where(h1, h2, h3,
+    h4, h5, h6) {
+    text-wrap: balance;
+}
+
+:where(p) {
+    text-wrap: pretty;
+}
+
+:where(figure)>:where(figcaption) {
+    text-wrap: balance;
+}
+
+:where(p, h1, h2, h3,
+    h4, h5, h6) {
+    overflow-wrap: break-word;
+}
+
+
+
+/* 7. making media elements block-level */
+:where(img,
+    svg,
+    video,
+    canvas,
+    picture,
+    audio,
+    iframe,
+    embed,
+    object) {
+    display: block
+}
+
+:where(img, svg, video, canvas, picture) {
+    block-size: auto;
+    max-inline-size: 100%
+}
+
+/* 8. inherit font and letter spacing for form controls */
+:where(input,
+    button,
+    textarea,
+    select),
+:where(input[type=file])::-webkit-file-upload-button {
+    font: inherit;
+    letter-spacing: inherit
+}
+
+/* 9. textarea can only resized vertically and will grow to adjust its content */
+:where(textarea) {
+    resize: vertical;
+   field-sizing: content;
+}
+
+/* 10. table */
+:where(table) {
+    width: fit-content;
+    border-collapse: collapse;
+}
+
+:where(pre) {
+    direction: ltr;
+    max-inline-size: max-content;
+    min-inline-size: 0;
+    white-space: pre;
+    writing-mode: lr
+}
+
+:where(a[href],
+    area,
+    button,
+    input:not([type=text],
+        [type=email],
+        [type=number],
+        [type=password],
+        [type=""],
+        [type=tel],
+        [type=url]),
+    label[for],
+    select,
+    summary,
+    [tabindex]:not([tabindex*="-"],
+        pre)) {
+    cursor: pointer
+}
+
+/*  this will disable additional non-standard gestures such as double-tap to zoom*/
+:where(a[href],
+    area,
+    button,
+    input,
+    label[for],
+    select,
+    summary,
+    textarea,
+    [tabindex]:not([tabindex*="-"])) {
+    touch-action: manipulation
+}
+
+
+
+
+:root {
+    --header-bg:#051540 ;
+    --p-color:#0F2A44;
+    --secondary-color:#ffffff;
+    --card-color:#F2F7FF;
+    --heading-color:#164BAF;
+    --table-th-color:#164BAF;
+    --table-bg-color:#D1E3FF;
+    --sub-table-bg-color:#F2F7FF;
+    --button-color:#164BAF;
+    --footer-color:#051540;
+}
+h1 {
+   color: var(--heading-color); 
+   font-size: 1.2rem;
+}
+
+p {
+   color: var(--p-color); 
+   font-size: 0.8rem;
+   line-height: 1.5;
+}
+
+
+/* form section */
+
+.form-section {
+    padding: 60px 8% ;
+}
+
+fieldset {
+    border: none;
+}
+
+fieldset {
+     display: grid;
+     grid-template-columns: repeat(2,1fr);
+     column-gap: 20px;
+     padding: 0;
+     margin: 0;
+    
+}
+
+label{
+    display: block;
+    margin:20px 0 8px;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+input,textarea {
+ width: 100%;
+ padding: 10px;
+ display: block;
+  border-radius: 5px;
+  border: solid 1px #C7C7C7;
+}
+
+
+textarea {
+    resize: none;
+}
+ .form-section p {
+    color: #616161;
+ }
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    padding: 8px 2px;
+    background-color: var(--button-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 20px;
+}
+
+.bi {
+    font-weight: bold;
+    display: block;
+    margin-left: 8px;
+    font-size: 8px;
+}
+
+
+/* phone view */
+@media (max-width:768px) {
+  
+  
+
+
+      /* form section */
+
+      br {
+        display: none;
+      }
+     .form-section {
+        padding: 45px 10px;
+     }
+
+     .form-section p{
+        text-align: center;
+        font-size: 1.2rem;
+        color: #0F2A44;
+     }
+
+     .form-section h1  {
+        font-size: 2rem;
+        text-align: center;
+     }
+
+    fieldset {
+        display: grid ;
+        grid-template-columns: 1fr;
+    }
+
+    label {
+        font-size: 1.3;
+    }
+
+    textarea {
+      height: 120px;
+    }
+    .form-section .char {
+      text-align: left;
+      color: #616161;
+      font-size: 1rem;
+    }
+   .btn {
+     width: 100%;
+     padding: 10px 5px;
+     border-radius: 5px;
+     margin-top: 25px;
+     font-size: 1rem;
+   }
+    
+  .bi {
+    font-size: 0.8rem;
+  } 
+}
